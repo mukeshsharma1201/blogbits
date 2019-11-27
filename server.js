@@ -30,6 +30,8 @@ app.use(express.static(path.join(__dirname, 'client', 'build')));
 //Connect to DB
 const uri = process.env.MONGO_URI;
 mongoose.set('useFindAndModify', false);
+console.log('>>>>Before connect : ', process.env.PORT);
+
 mongoose
   .connect(uri, {
     useNewUrlParser: true,
