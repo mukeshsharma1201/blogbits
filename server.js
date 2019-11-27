@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 require('dotenv').config(); //Take secret values from .env files and put in ENV variables
 const cloudinary = require('cloudinary');
+const path = require('path');
 
 //API routes to handle
 const articleRoute = require('./routes/api/article');
@@ -24,6 +25,7 @@ const app = express();
 //Express Middlewares
 app.use(cors());
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 
 //Connect to DB
 const uri = process.env.MONGO_URI;
@@ -42,6 +44,10 @@ app.use('/api/articles', articleRoute);
 app.use('/api/users', userRoute);
 app.use('/api/categories', categoriesRoute);
 app.use('/api/comments', commentRoute);
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
 
 //Start Listening to requests via Express App
 const port = process.env.PORT || 5000; //Default Port 5000

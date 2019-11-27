@@ -8,7 +8,8 @@
     "server": "nodemon server.js",
     "client": "cd client && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "client-install": "cd client && npm install"
+    "client-install": "cd client && npm install",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "Mukesh Kumar & Pooja Albela",
   "license": "MIT",
@@ -23,9 +24,13 @@
     "express": "^4.17.1",
     "lodash": "^4.17.15",
     "moment": "^2.24.0",
-    "mongoose": "^5.7.1"
+    "mongoose": "^5.7.1",
+    "path": "^0.12.7"
   },
   "devDependencies": {
     "nodemon": "^1.19.2"
+  },
+  "engines": {
+    "node": "12.9.1"
   }
 }
