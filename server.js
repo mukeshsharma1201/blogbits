@@ -37,7 +37,7 @@ mongoose
     useUnifiedTopology: true
   })
   .then(() => console.log('MongoDB database connection established successfully!'))
-  .catch(error => console.log(error));
+  .catch(error => console.log('Mongo Connection Error :', error));
 
 //Handle routes
 app.use('/api/articles', articleRoute);

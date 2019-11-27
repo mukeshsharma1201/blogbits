@@ -11,6 +11,8 @@ const Article = require('../../models/article.model');
 // @route GET api/articles
 // @desc GET all Articles from DB
 router.get('/', (req, res) => {
+  console.log('GET: Articles');
+
   Article.find()
     .populate({ path: 'author', select: '-authtoken -__v' }) //Get everything from user except authtoken and __v
     .populate({ path: 'categories', select: '-__v' })
