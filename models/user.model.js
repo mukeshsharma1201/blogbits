@@ -14,14 +14,25 @@ const userSchema = new Schema({
     trim: true,
     minlength: 3
   },
-  role: {
+  provider_pic: {
+    type: String,
+    required: false
+  },
+  uid: {
     type: String,
     required: true,
+    unique: true,
+    trim: true,
+    minlength: 1
+  },
+  role: {
+    type: String,
+    required: false,
     trim: true
   },
   authtoken: {
     type: String,
-    required: true
+    required: false
   }
 });
 

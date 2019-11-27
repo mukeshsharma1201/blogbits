@@ -5,17 +5,24 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client-install": "cd client && npm install"
   },
   "author": "Mukesh Kumar & Pooja Albela",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "classnames": "^2.2.6",
+    "cloudinary": "^1.17.0",
     "concurrently": "^4.1.2",
+    "connect-multiparty": "^2.2.0",
     "cors": "^2.8.5",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
     "lodash": "^4.17.15",
+    "moment": "^2.24.0",
     "mongoose": "^5.7.1"
   },
   "devDependencies": {

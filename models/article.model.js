@@ -12,6 +12,7 @@ const articleSchema = new Schema(
     coverImage: String,
     upvotes: Number,
     body: String,
+    text: String,
     comments: [{ body: String, date: Date }],
     categories: [
       {
