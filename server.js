@@ -2,9 +2,12 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-require('dotenv').config(); //Take secret values from .env files and put in ENV variables
 const cloudinary = require('cloudinary');
 const path = require('path');
+//Take secret values from .env files and put in ENV variables
+if (process.env.NODE_ENV !== 'production') {
+  require('dotenv').config();
+}
 
 //API routes to handle
 const articleRoute = require('./routes/api/article');
@@ -25,7 +28,9 @@ const app = express();
 //Express Middlewares
 app.use(cors());
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, 'client', 'build')));
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, 'client', 'build')));
+}
 
 //Connect to DB
 const uri = process.env.MONGO_URI;
