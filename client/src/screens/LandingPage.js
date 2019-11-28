@@ -99,7 +99,7 @@ class LandingPage extends Component {
                     <Typography variant='h5' color='inherit' paragraph>
                       {extractContent(featuredPost.text).substr(0, 300) + ' '}
                     </Typography>
-                    <Link variant='subtitle1' href='#'>
+                    <Link variant='subtitle1' href={`/articleview/${featuredPost._id}`}>
                       Continue reading…
                     </Link>
                   </div>
