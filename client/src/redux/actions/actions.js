@@ -4,7 +4,7 @@ axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 //const url = "http://localhost:5000/api/"
 // const url = process.env.NODE_ENV === 'production' ? "/api/" : "http://localhost:5000/api/"
-const url = 'api/';
+const url = '/api/';
 
 export function loadArticles() {
   return dispatch => {
